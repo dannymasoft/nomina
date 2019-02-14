@@ -183,7 +183,6 @@ class ModeloBase extends EntidadBase{
         return $resultSet;
     }
     
-    
 }
 ?>
 
