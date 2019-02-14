@@ -99,8 +99,16 @@
               </div>
             </div>
         
-            <div class="ibox-content">  
-      		
+             <div class="ibox-content">  
+              <?php 
+                if(isset($error) && !$error){
+                  echo '<h2> ERROR EN EL ARCHIVO - archivo no procesado</h2>';
+                  $arrayerror = explode("|",$detallerespuesta);
+                  for($i=0; $i<count($arrayerror); $i++){
+
+               ?>
+                  <p><?php echo $arrayerror[$i]; ?> </p>
+                  <?php }} ?>
             	</div>
                </div>
             </section>

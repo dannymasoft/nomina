@@ -228,6 +228,7 @@ class ProcesosController extends ControladorBase{
 
 				//para validacion de archivo
 				$error = false;
+				$detallerespuesta = "";
 
 				if(file_exists($ruta_destino_archivo)){
 
@@ -247,12 +248,14 @@ class ProcesosController extends ControladorBase{
 								$error = true;
 							}else{								
 								$error = false;
+								$detallerespuesta.="error linea {$l}|";
 							}
 					
 						}
 					}
 
 				}
+				$detallerespuesta=trim($detallerespuesta,'|');
 				//para funcion
 				$parametros="";
 				$funcion="ins_temp_lectura_biometrico";
@@ -285,6 +288,8 @@ class ProcesosController extends ControladorBase{
 				}
 
 			}
+
+			$this->View('Procesos', array('error'=>$error, 'detallerespuesta'=>$detallerespuesta));
 			
 		}
 		else
